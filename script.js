@@ -43,8 +43,3 @@ async function getFinancialAdvice(prompt) {
   const advice = await response.text();
   return advice;
 }
-
-  const data = await response.json();
-  console.log("Advice received:", data.choices[0].text.trim());
-  return data.choices[0].text.trim();
-}
