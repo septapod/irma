@@ -4,10 +4,8 @@
   "builds": [
     { "src": "index.html", "use": "@vercel/static" }
   ],
-  "rewrites": [
-    { "source": "/(styles.css|script.js)", "destination": "/$1" },
-    { "source": "/(.*)", "destination": "/index.html" }
-  ],
+  "cleanUrls": true,
+  "trailingSlash": true,
   "env": {
     "GPT_API_KEY": "@gpt_api_key"
   }
