@@ -4,32 +4,23 @@
     {
       "src": "server.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "public/index.html",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
       "dest": "/server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/public/$1"
     }
   ],
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/public/$1"
-    }
-  ]
-}{
-"src": "/api/(.)",
-"dest": "/server.js"
-}
-],
-"rewrites": [
-{
-"source": "/(.)",
-"destination": "/public/$1"
-}
-],
-"env": {
-"GPT_API_KEY": "@gpt_api_key"
-}
+  "env": {
+    "GPT_API_KEY": "@gpt_api_key"
+  }
 }
