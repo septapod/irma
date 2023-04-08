@@ -18,4 +18,18 @@
       "destination": "/public/$1"
     }
   ]
+}{
+"src": "/api/(.)",
+"dest": "/server.js"
+}
+],
+"rewrites": [
+{
+"source": "/(.)",
+"destination": "/public/$1"
+}
+],
+"env": {
+"GPT_API_KEY": "@gpt_api_key"
+}
 }

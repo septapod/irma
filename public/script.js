@@ -1,25 +1,10 @@
 const form = document.getElementById("user-data-form");
 const adviceContainer = document.getElementById("advice");
 const adviceContent = document.getElementById("advice-content");
-const express = require('express');
-const cors = require('cors');
-const fetch = require('node-fetch');
-const path = require('path');
-
-const app = express();
-const PORT = process.env.PORT || 3001;
-
-app.use(cors());
-app.use(express.json());
-
-// Add this line to serve static files
-app.use(express.static(path.join(__dirname, 'public')));
 
 form.addEventListener("submit", async (event) => {
   try {
     event.preventDefault();
-
-    console.log("Form submitted");
 
     const income = document.getElementById("income").value;
     const expenses = document.getElementById("expenses").value;
@@ -36,7 +21,6 @@ form.addEventListener("submit", async (event) => {
     Consider budgeting, savings, debt management, investments, retirement planning, and risk management in your response. Ensure the advice given is clear, actionable, and tailored to the user's unique needs and objectives. Keep in mind current financial trends, market conditions, and best practices in personal finance.`;
 
     const advice = await getFinancialAdvice(prompt);
-    console.log("Advice received:", advice);
     adviceContent.innerText = advice;
     adviceContainer.style.display = "block";
   } catch (error) {
@@ -45,20 +29,14 @@ form.addEventListener("submit", async (event) => {
 });
 
 async function getFinancialAdvice(prompt) {
-  // Replace with your actual GPT-4 API key and endpoint
-  const apiKey = "GPT_API_KEY";
-  const apiUrl = "https://api.openai.com/v1/chat/completions?organization=org-g89WT42eik6s4L7X6msERoYW&model=gpt-4";
-
-  const response = await fetch(apiUrl, {
+  const response = await fetch("/api/get-advice", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${apiKey}`
     },
-    body: JSON.stringify({ prompt, max_tokens: 150 })
+    body: JSON.stringify({ prompt }),
   });
 
   const data = await response.json();
-  console.log("Advice received:", data.choices[0].text.trim());
-  return data.choices[0].text.trim();
+  return data.advice;
 }
