@@ -1,6 +1,19 @@
 const form = document.getElementById("user-data-form");
 const adviceContainer = document.getElementById("advice");
 const adviceContent = document.getElementById("advice-content");
+const express = require('express');
+const cors = require('cors');
+const fetch = require('node-fetch');
+const path = require('path');
+
+const app = express();
+const PORT = process.env.PORT || 3001;
+
+app.use(cors());
+app.use(express.json());
+
+// Add this line to serve static files
+app.use(express.static(path.join(__dirname, 'public')));
 
 form.addEventListener("submit", async (event) => {
   try {

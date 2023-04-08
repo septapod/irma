@@ -1,11 +1,23 @@
 {
   "version": 2,
-  "name": "Irma",
   "builds": [
-    { "src": "index.html", "use": "@vercel/static" }
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "public/**/*",
+      "use": "@vercel/static"
+    }
   ],
   "routes": [
-    { "src": "/(styles.css|script.js)", "headers": { "cache-control": "max-age=300" }, "dest": "/$1" },
-    { "src": "/.*", "dest": "/index.html" }
+    {
+      "src": "/api/(.*)",
+      "dest": "server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "public/$1"
+    }
   ]
 }

@@ -1,0 +1,22 @@
+{
+  "name": "financial-advice-app",
+  "version": "1.0.0",
+  "description": "A financial counseling app using GPT-4, Replit, and Vercel",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.7"
+  },
+  "keywords": [
+    "financial-advice",
+    "GPT-4",
+    "Replit",
+    "Vercel"
+  ],
+  "author": "Brent Dixon",
+  "license": "MIT"
+}
