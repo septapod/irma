@@ -33,7 +33,7 @@ form.addEventListener("submit", async (event) => {
 
 async function getFinancialAdvice(prompt) {
   // Replace with your actual GPT-4 API key and endpoint
-  const apiKey = "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";
+  const apiKey = "GPT_API_KEY";
   const apiUrl = "https://api.openai.com/v1/chat/completions?organization=org-g89WT42eik6s4L7X6msERoYW&model=gpt-4";
 
   const response = await fetch(apiUrl, {
