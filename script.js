@@ -2,7 +2,7 @@ const form = document.getElementById("user-data-form");
 const adviceContainer = document.getElementById("advice");
 const adviceContent = document.getElementById("advice-content");
 
-form.addEventListener("submit", async (event) =>
+form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const income = document.getElementById("income").value;
