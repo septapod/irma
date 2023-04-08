@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "start": "serve ."
+  }
+}
+{
   "name": "financial-advice-app",
   "version": "1.0.0",
   "description": "A financial counseling app using GPT-4, Replit, and Vercel",
