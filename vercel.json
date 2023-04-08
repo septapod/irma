@@ -2,14 +2,14 @@
   "version": 2,
   "name": "irma",
   "builds": [
-    { "src": "index.html", "use": "@vercel/static" }
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "api/get_advice.js", "use": "@vercel/node" }
   ],
-"routes": [
-  { "src": "/(styles.css|script.js)", "headers": { "cache-control": "max-age=300" }, "dest": "/$1" },
-  { "src": "/api/get_advice", "dest": "/api/get_advice.js" },
-  { "src": "/.*", "dest": "/index.html" }
-],
-    "env": {
+  "routes": [
+    { "src": "/(styles.css|script.js)", "headers": { "cache-control": "max-age=300" }, "dest": "/$1" },
+    { "src": "/.*", "dest": "/index.html" }
+  ],
+  "env": {
     "GPT_API_KEY": "@gpt_api_key"
   }
 }
