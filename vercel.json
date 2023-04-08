@@ -4,9 +4,9 @@
   "builds": [
     { "src": "index.html", "use": "@vercel/static" }
   ],
-  "routes": [
-    { "src": "/(styles.css|script.js)", "headers": { "cache-control": "max-age=300" }, "dest": "/$1" },
-    { "src": "/.*", "dest": "/index.html" }
+  "rewrites": [
+    { "source": "/(styles.css|script.js)", "destination": "/$1" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ],
   "env": {
     "GPT_API_KEY": "@gpt_api_key"
